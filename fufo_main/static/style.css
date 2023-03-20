@@ -1,8 +1,13 @@
 html {
-    font-family: sans-serif;
-    background: #7f8a81;
-    padding: 1rem;
-  }
+  background-image: url(crowd.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
   
   body {
     max-width: 900px;
