@@ -1,23 +1,28 @@
 html {
-    font-family: sans-serif;
-    background: #7f8a81;
-    padding: 1rem;
-  }
+  background-image: url(crowd.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
   
   body {
-    max-width: 450px;
+    max-width: 900px;
     margin: 0 auto;
     background: white;
   }
   
   h1, h2, h3, h4, h5, h6 {
     font-family: serif;
-    color: #822b8a;
+    color: #c78d37;
     margin: 1rem 0;
   }
   
   a {
-    color: #a8278c;
+    color: #5f2552;
   }
   
   hr {
@@ -26,7 +31,7 @@ html {
   }
   
   nav {
-    background: rgb(228, 175, 212);
+    background: rgb(202, 194, 36);
     display: flex;
     align-items: center;
     padding: 0 0.5rem;
