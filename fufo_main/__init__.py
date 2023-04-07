@@ -1,4 +1,5 @@
 import os
+import fufo_main.f_logger as f_logger
 
 from flask import Flask
 
@@ -11,6 +12,8 @@ def create_app(test_config=None):
         SECRET_KEY='dev',
         DATABASE=os.path.join(app.instance_path, 'fufo_main.sqlite'),
     )
+
+    # f_logger.logger.info(app.instance_path)
 
     if test_config is None:
         # load the instance config, if it exists, when not testing
@@ -28,6 +31,7 @@ def create_app(test_config=None):
     # a simple page that says hello
     @app.route('/hello')
     def hello():
+        # f_logger.logger.info(app.blueprints)
         return 'Hello, World!'
     
     from . import db
