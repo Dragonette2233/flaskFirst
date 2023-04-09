@@ -12,5 +12,7 @@ htmlcov/
 dist/
 build/
 *.egg-info/
+*.sh
 
-main.py
+app.log
+TESTINGSCRIPTS.py

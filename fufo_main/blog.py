@@ -5,10 +5,12 @@ from werkzeug.exceptions import abort
 
 from fufo_main.auth import login_required
 from fufo_main.db import get_db
+from fufo_main.f_logger import logger
 
 bp = Blueprint('blog', __name__)
 
-@bp.route('/')
+
+@bp.route('/', methods=('GET', 'POST'))
 def index():
     db = get_db()
     posts = db.execute(
@@ -17,21 +19,20 @@ def index():
         ' ORDER BY created DESC'
     ).fetchall()
 
+    
     return render_template('blog/index.html', posts=posts)
 
 @bp.route('/create', methods=('GET', 'POST'))
 @login_required
 def create():
+    print(request.method)
     if request.method == 'POST':
         title = request.form['title']
         body = request.form['body']
-        error = None
-
-        if not title:
-            error = 'Title is required.'
-
-        if error is not None:
-            flash(error)
+        
+        if len(title) <= 5:
+            flash('Title must be more than 5 characters')
+        
         else:
             db = get_db()
             db.execute(
@@ -87,10 +88,23 @@ def update(id):
 
     return render_template('blog/update.html', post=post)
 
+@bp.route('/fullremove', methods=('POST', ))
+@login_required
+def delete_all():
+
+    db = get_db()
+    db.execute(
+        'DELETE FROM post WHERE author_id = ?', (g.user['id'], )
+    )
+    db.commit()
+
+    return redirect(url_for('blog.index'))
+
 @bp.route('/<int:id>/delete', methods=('POST',))
 @login_required
-def delete(id):
-    get_post(id)
+def delete(id, all=False):
+    posts = get_post(id)
+    print(posts)
     db = get_db()
     db.execute('DELETE FROM post WHERE id = ?', (id,))
     db.commit()
