@@ -4,10 +4,10 @@
   <h1>{% block title %}Обезьяньи мутки{% endblock %}</h1>
   {% if g.user %}
     <form action="{{ url_for('blog.delete_all') }}" method="post" onclick="return confirm('Sure you want it?')">
-      <button type="submit">Delete all posts</button>
+      <button type="submit">Удалить все посты</button>
     </form>
     <form action="{{ url_for('blog.create') }}" method="get">
-      <button type="submit">New</button>
+      <button type="submit">Создать пост</button>
     </form>
   {% endif %}
 {% endblock %}
