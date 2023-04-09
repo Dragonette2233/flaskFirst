@@ -13,7 +13,8 @@ def create_app(test_config=None):
         DATABASE=os.path.join(app.instance_path, 'fufo_main.sqlite'),
     )
 
-    # f_logger.logger.info(app.instance_path)
+    # or i in app.config.items():
+    #     f_logger.logger.info(i)
 
     if test_config is None:
         # load the instance config, if it exists, when not testing
@@ -25,6 +26,7 @@ def create_app(test_config=None):
     # ensure the instance folder exists
     try:
         os.makedirs(app.instance_path)
+        
     except OSError:
         pass
 

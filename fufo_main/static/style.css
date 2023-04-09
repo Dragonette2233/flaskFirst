@@ -12,17 +12,17 @@ html {
   body {
     max-width: 900px;
     margin: 0 auto;
-    background: white;
+    background: rgb(255, 255, 255);
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: serif;
-    color: #c78d37;
+    font: Tahoma;
+    color: #090c0c80;
     margin: 1rem 0;
   }
   
   a {
-    color: #5f2552;
+    color: #1e7480;
   }
   
   hr {
@@ -31,10 +31,10 @@ html {
   }
   
   nav {
-    background: rgb(202, 194, 36);
+    background: rgb(238, 171, 27);
     display: flex;
     align-items: center;
-    padding: 0 0.5rem;
+    padding: 0 1rem;
   }
   
   nav h1 {
@@ -56,7 +56,7 @@ html {
   
   nav ul li a, nav ul li span, header .action {
     display: block;
-    padding: 0.5rem;
+    padding: 0.75rem;
   }
   
   .content {
@@ -71,7 +71,7 @@ html {
   
   .content > header h1 {
     flex: auto;
-    margin: 1rem 0 0.25rem 0;
+    margin: 1rem 0 0.75rem 0;
   }
   
   .flash {
@@ -125,15 +125,30 @@ html {
   }
   
   .content textarea {
-    min-height: 12em;
-    resize: vertical;
+    min-height: 9em;
+    resize: none;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
   }
-  
+
+  .content input[name="title"] {
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+  }
+
   input.danger {
     color: #cc2f2e;
   }
   
-  input[type=submit] {
-    align-self: start;
-    min-width: 10em;
+  button[type=submit], input[type="submit"] {
+    color: rgb(15, 13, 13);
+    margin-right: 10px;
+    background-color: yellow;
+    border-radius: 9px;
+    border-color: rgb(190, 190, 187);
   }
+
+  button[type=submit]:hover, input[type=submit]:hover  {
+    background-color: rgba(255, 166, 0, 0.5);
+  }
+
