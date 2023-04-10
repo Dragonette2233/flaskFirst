@@ -7,6 +7,5 @@ RUN pip install -r requirements.txt
 COPY . /app
 
 ENV FLASK_APP ./fufo_main
-ENV FLASK_ENV production
 
-CMD ["flask", "run", "--host=0.0.0.0"]
+CMD ["waitress-serve", "--call", "fufo_main:create_app"]
