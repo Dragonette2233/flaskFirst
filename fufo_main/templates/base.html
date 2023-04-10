@@ -2,8 +2,8 @@
 <title>{% block title %}{% endblock %} - FUFO NEWS</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <nav>
-  <h1>FUFO NEWS</h1>
   <ul>
+      <li><a id="homepage" href="{{ url_for('blog.index') }}">FUFO NEWS</a>
     {% if g.user %}
       <li><span>{{ g.user['username'] }}</span>
       <li><a href="{{ url_for('auth.logout') }}">Выйти</a>
